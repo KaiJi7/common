@@ -9,6 +9,7 @@ const (
 	StrategyNameLowestResponse StrategyName = "lowestResponse"
 	StrategyNameConfidenceBase StrategyName = "confidenceBase"
 	StrategyNameMostConfidence StrategyName = "mostConfidence"
+	StrategyNameLinearResponse StrategyName = "linearResponse"
 )
 
 type StrategyName string
