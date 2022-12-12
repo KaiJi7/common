@@ -1,6 +1,7 @@
 package structs
 
 import (
+	log "github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
@@ -20,7 +21,15 @@ type StrategyData struct {
 	GamblerId  *primitive.ObjectID    `json:"gambler_id" bson:"gambler_id"`
 	Name       StrategyName           `json:"name" bson:"name"`
 	Properties map[string]interface{} `json:"properties" bson:"properties"`
-	//Description string                 `json:"description" bson:"description"`
+}
+
+func (s *StrategyData) GetProperty(name string) interface{} {
+	if p, exist := s.Properties[name]; exist {
+		return p
+	} else {
+		log.Warn("no property: ", name)
+		return nil
+	}
 }
 
 type StrategyMeta struct {
