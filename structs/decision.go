@@ -13,6 +13,6 @@ type Decision struct {
 	Put        float64             `json:"put" bson:"put"`
 }
 
-func (d Decision) String() string {
-	return fmt.Sprintf("Bet: %s, Put: %d", d.Bet, &d.Put)
+func (d *Decision) String() string {
+	return fmt.Sprintf("Bet: %s, Put: %f", d.Bet, d.Put)
 }
